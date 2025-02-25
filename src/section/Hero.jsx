@@ -26,13 +26,13 @@ const Hero = () => {
                 >
                     <h1 
                         data-aos="zoom-in" 
-                        className="text-6xl text-white font-semibold lg:pr-[500px] pr-0 lg:leading-[70px] leading-[60px]"
+                        className={`${darkMode ? 'text-white' : 'text-black' } text-6xl text-white font-semibold lg:pr-[500px] pr-0 lg:leading-[70px] leading-[60px]`}
                     >
                         Find your next Home in Las Vegas
                     </h1>
                     <p 
                         data-aos="zoom-in" 
-                        className='text-white text-xl lg:pr-[500px] pr-0'
+                        className={`${darkMode ? 'text-white' : 'text-black' } text-white text-xl lg:pr-[500px] pr-0`}
                     >
                         Through our proprietary platform, WpResidence is changing how agents and clients navigate the process of finding or selling a home.
                     </p>

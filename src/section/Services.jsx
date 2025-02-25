@@ -7,9 +7,9 @@ const Services = () => {
    useEffect(() => {
       AOS.init({
         offset: 200,
-        duration: 800,
+        duration: 500,
         easing: "ease-in-sine",
-        delay: 100,
+        
       });
     }, []);
     const { darkMode, toggleDarkMode } = useDarkMode();
@@ -18,7 +18,7 @@ const Services = () => {
        <section id='services' className={`${darkMode ? 'dark bg-gray-800': 'light bg-red-100'} lg:w-[][95%] w-full h-fit m-auto rounded-xl flex flex-col justify-center items-start lg:px-20 px-6 py-20 gap-10`}>
         <div className='flex flex-col justify-center items-start gap-4'>
           <h1 data-aos="zoom-in" className='text-red-500 dark:text-red'>OUR SERVICES</h1>
-          <h1 data-aos="zoom-in" className='text-black text-[40px] font-semibold leading-10 dark:text-black'>Top real estate <br />
+          <h1 data-aos="zoom-in" className={`${darkMode ? 'text-white' : 'text-black' } ' text-[40px] font-semibold leading-10`}>Top real estate <br />
           services available</h1>
         </div>
    <div id='service-box' className='grid lg:grid-cols-3 grid-cols-1 justify-center items-center gap-8'>{

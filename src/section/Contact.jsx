@@ -7,9 +7,9 @@ const Contact = () => {
   useEffect(() => {
     AOS.init({
       offset: 200,
-      duration: 800,
+      duration: 500,
       easing: "ease-in-sine",
-      delay: 100,
+     
     });
   }, []);
 
@@ -67,7 +67,7 @@ const Contact = () => {
           </h1>
           <h1
             data-aos="zoom-in"
-            className="text-black text-[40px] font-semibold leading-10 dark:text-black"
+            className={`${darkMode ? 'text-white' : 'text-black' }  text-[40px] font-semibold leading-10 `}
           >
             Get in touch with us <br /> today and our team <br /> will assist
             you

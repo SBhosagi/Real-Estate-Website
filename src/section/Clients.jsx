@@ -8,9 +8,9 @@ const Clients = () => {
   useEffect(() => {
     Aos.init({
       offset: 200,
-      duration: 800,
+      duration: 500,
       easing: "ease-in-sine",
-      delay: 100,
+    
     });
   }, []);
   const { darkMode, toggleDarkMode } = useDarkMode();
@@ -26,7 +26,7 @@ const Clients = () => {
           </h1>
           <h1
             data-aos="zoom-in"
-            className="text-black  text-[40px] font-semibold leading-10"
+            className={`${darkMode ? 'text-white' : 'text-black' } text-black  text-[40px] font-semibold leading-10`}
           >
             What our clients <br />
             saying about us

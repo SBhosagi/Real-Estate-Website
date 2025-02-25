@@ -21,9 +21,9 @@ const Properties = () => {
   useEffect(() => {
     AOS.init({
       offset: 200,
-      duration: 800,
+      duration: 500,
       easing: "ease-in-sine",
-      delay: 100,
+      
     });
   }, []);
   const { darkMode, toggleDarkMode } = useDarkMode();
@@ -39,7 +39,7 @@ const Properties = () => {
           </h1>
           <h1
             data-aos="zoom-in"
-            className="text-black text-4xl font-semibold dark:text-black"
+            className={`${darkMode ? 'text-white' : 'text-black' } text-4xl font-semibold `}
           >
             Explore the latest <br /> properties available
           </h1>
@@ -123,9 +123,9 @@ const Properties = () => {
                     <h1 className='dark:text-white'>{item.owner}</h1>
                   </div>
                   <div className='flex justify-center items-center gap-4'>
-                    <div className='p-2 border-2 border-gray-200 hover:bg-white cursor-pointer transform hover:scale-110 transition-transform duration-300'>< FaShareAlt className='size-4 text-red-400'/ ></div>
-                    <div className='p-2 border-2 border-gray-200 hover:bg-white cursor-pointer transform hover:scale-110 transition-transform duration-300'>< FaHeart className='size-4 text-red-400'/ ></div>
-                    <div className='p-2 border-2 border-gray-200 hover:bg-white cursor-pointer transform hover:scale-110 transition-transform duration-300'>< FaPlus className='size-4 text-red-400'/ ></div>
+                    <div className='p-0.5 border-2 border-gray-200 hover:bg-white cursor-pointer transform hover:scale-110 transition-transform duration-300'>< FaShareAlt className='size-4 text-red-400'/ ></div>
+                    <div className=' p-0.5 border-2 border-gray-200 hover:bg-white cursor-pointer transform hover:scale-110 transition-transform duration-300'>< FaHeart className='size-4 text-red-400'/ ></div>
+                    <div className='p-0.5 border-2 border-gray-200 hover:bg-white cursor-pointer transform hover:scale-110 transition-transform duration-300'>< FaPlus className='size-4 text-red-400'/ ></div>
                   </div>
                  </div>
                 </div>

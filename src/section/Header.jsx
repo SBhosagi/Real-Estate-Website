@@ -21,7 +21,7 @@ const Header = () => {
   };
 
   const navItems = [
-    { link: "Home", path: "home" },
+    { link: "Home", path: "hero" },
     { link: "About", path: "about" },
     { link: "Properties", path: "properties" },
     { link: "Services", path: "services" },
@@ -32,17 +32,17 @@ const Header = () => {
   return (
     <nav
       className={`${
-        darkMode ? "dark:bg-black" : "bg-[#f3f3f3]"
+        darkMode ? 'dark:bg-black' : 'bg-[#f3f3f3]'
       } flex justify-between items-center gap-4 lg:px-20 px-4 py-3 sticky top-0 z-30`}
     >
       {/* Logo */}
       <div className="text-2xl font-bold text-orange-500 flex items-center gap-2">
-        <span className="text-3xl">🏠</span>
+        <span className="text-3xl ">🏠</span>
         <span>REAL ESTATE</span>
       </div>
 
       {/* Desktop Navigation */}
-      <ul className="lg:flex justify-center items-center gap-8 hidden">
+      <ul className={`${darkMode ? 'text-white' : 'text-black' } lg:flex justify-center items-center gap-8 `}>
         {navItems.map(({ link, path }) => (
           <li key={path}>
             <Link
@@ -59,19 +59,28 @@ const Header = () => {
         ))}
       </ul>
 
-      {/* Mobile menu button */}
+      {/* Mobile menu icon start here */}
       <div className="flex justify-center items-center lg:hidden" onClick={toggleMenu}>
-        {isMenuOpen ? (
+        <div>
+        {isMenuOpen ?
           <FaXmark className="text-black dark:text-white text-2xl cursor-pointer" />
-        ) : (
-          <FaBars className="text-black dark:text-white text-2xl cursor-pointer" />
-        )}
+       
+        : 
+          <FaBars className="text-black dark:text-white text-2xl cursor-pointer" />}
+          </div> 
+        
       </div>
 
       {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="w-full bg-slate-800 p-4 absolute top-[80px] left-0">
+      <div className={`${isMenuOpen ? 'flex ' :'hidden'} w-full h-fit bg-slate-800 p-4 absolute top-[80px] left-0`} onClick={closeMenu}>
+      
           <ul className="flex flex-col justify-center items-center gap-2 w-full">
+          <li><a href="#hero" className=" p-3 hover:bg-blue-500 rounded-lg">Home</a></li>
+          <li><a href="#about" className=" p-3 hover:bg-blue-500 rounded-lg">About</a></li>
+          <li><a href="#properties" className=" p-3 hover:bg-blue-500 rounded-lg">Properties</a></li>
+          <li><a href="#services" className=" p-3 hover:bg-blue-500 rounded-lg">Services </a></li>
+          <li><a href="#testimonials" className=" p-3 hover:bg-blue-500 rounded-lg"> Testimonials</a></li>
+          <li><a href="#contact" className=" p-3 hover:bg-blue-500 rounded-lg">Contact</a></li>
             {navItems.map(({ link, path }) => (
               <li key={path}>
                 <Link
@@ -80,7 +89,6 @@ const Header = () => {
                   spy={true}
                   offset={-100}
                   smooth={true}
-                  onClick={closeMenu}
                 >
                   {link}
                 </Link>
@@ -88,8 +96,16 @@ const Header = () => {
             ))}
           </ul>
         </div>
-        
-      )}
+        <div className='flex justify-center items-center lg:gap-8 gap-2'>
+<div className='flex justify-center items-center lg:gap-3 gap-1'>
+<FaPhoneAlt className='size-5 text-red-600'/>
+<h1 className={`${darkMode ? 'text-white' : 'text-black' } lg:text-xl text-sm font-semibold`}>
+930 829 0912
+</h1>
+</div>
+<FaUserCircle className='size-6 text-red-600'/>
+        </div>
+      
 
     </nav>
   );

@@ -8,9 +8,9 @@ const About = () => {
   useEffect(() => {
     AOS.init({
       offset: 200,
-      duration: 800,
+      duration: 500,
       easing: "ease-in-sine",
-      delay: 100,
+    
     });
   }, []);
   const { darkMode, toggleDarkMode } = useDarkMode();
@@ -32,9 +32,11 @@ const About = () => {
         <h1 data-aos="zoom-in" className="text-red-500 dark:text-red gap-8" >
           WHO WE ARE
         </h1>
-        <h1 data-aos="zoom-in" data-aos-delay="200" className="text-black text-[40px] font-semibold leading-10 dark:text-black">We help clients buy and sell houses since 1989</h1>
-        <p data-aos="zoom-in" data-aos-delay="200" className="text-xl text-gray-600 dark:text-black text-justify">Since 1989, we have been dedicated to helping clients buy and sell homes with confidence and ease. With decades of experience in the real estate market, we have built a reputation for trust, professionalism, and exceptional service.</p>
-        <button data-aos="zoom-in" data-aos-delay="200" className='bg-red-600 dark:bg-red-600 dark:hover:bg-black dark:hover:text-white text-lg p-4  text-white font-semibold rounded-xl cursor-pointer transform hover:scale-110 transition-transform duration-300'>
+        <h1 data-aos="zoom-in" 
+        className={`${darkMode ? 'text-white' : 'text-black' } text-[40px] font-semibold leading-10 `}>
+          We help clients buy and sell houses since 1989</h1>
+        <p data-aos="zoom-in"  className={' text-xl  text-justify {darkMode ?  dark:text-gray-600'}>Since 1989, we have been dedicated to helping clients buy and sell homes with confidence and ease. With decades of experience in the real estate market, we have built a reputation for trust, professionalism, and exceptional service.</p>
+        <button data-aos="zoom-in" className='bg-red-600 dark:bg-red-600 dark:hover:bg-black dark:hover:text-white text-lg p-4  text-white font-semibold rounded-xl cursor-pointer transform hover:scale-110 transition-transform duration-300'>
                             VIEW MORE
                         </button>
       </div>
