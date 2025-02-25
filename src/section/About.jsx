@@ -18,7 +18,7 @@ const About = () => {
     <section
       id="about"
       className={`${darkMode ? "dark:bg-black" : "light bg-transparent"}
- w-full m-auto lg:px-40 px-10 py-20 grid lg:grid-cols-2 grid-cols-1 justify-center  items-centergap-10`}
+ w-full m-auto lg:px-40 px-20 py-30 grid lg:grid-cols-2 grid-cols-1 justify-center  items-centergap-10`}
     >
       <div>
         <img
@@ -28,8 +28,8 @@ const About = () => {
           className="rounded-2xl lg:w-[500px] lg:h-[600px]"
         />
       </div>
-      <div className="flex flex-col justify-center items-start gap-8">
-        <h1 data-aos="zoom-in" className="text-red-500 dark:text-red gap-8" >
+      <div className="flex flex-col justify-center items-start gap-8 ml-10">
+        <h1 data-aos="zoom-in" className="text-red-500 dark:text-red gap-8 mt-10" >
           WHO WE ARE
         </h1>
         <h1 data-aos="zoom-in" 
