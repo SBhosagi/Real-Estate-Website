@@ -7,6 +7,7 @@ import { useDarkMode } from "../components/DarkmodeContext";
 const Header = () => {
   const { darkMode, setDarkMode } = useDarkMode();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -18,6 +19,10 @@ const Header = () => {
 
   const toggleDarkMode = () => {
     setDarkMode((prevMode) => !prevMode);
+  };
+
+  const toggleProfileDropdown = () => {
+    setIsProfileOpen(!isProfileOpen);
   };
 
   const navItems = [
@@ -37,12 +42,12 @@ const Header = () => {
     >
       {/* Logo */}
       <div className="text-2xl font-bold text-orange-500 flex items-center gap-2">
-        <span className="text-3xl ">🏠</span>
+        <span className="text-3xl">🏠</span>
         <span>REAL ESTATE</span>
       </div>
 
       {/* Desktop Navigation */}
-      <ul className={`${darkMode ? 'text-white' : 'text-black' } lg:flex justify-center items-center gap-8 `}>
+      <ul className={`${darkMode ? 'text-white' : 'text-black'} lg:flex justify-center items-center gap-8`}>
         {navItems.map(({ link, path }) => (
           <li key={path}>
             <Link
@@ -59,36 +64,27 @@ const Header = () => {
         ))}
       </ul>
 
-      {/* Mobile menu icon start here */}
+      {/* Mobile menu icon */}
       <div className="flex justify-center items-center lg:hidden" onClick={toggleMenu}>
-        <div>
-        {isMenuOpen ?
+        {isMenuOpen ? (
           <FaXmark className="text-black dark:text-white text-2xl cursor-pointer" />
-       
-        : 
-          <FaBars className="text-black dark:text-white text-2xl cursor-pointer" />}
-          </div> 
-        
+        ) : (
+          <FaBars className="text-black dark:text-white text-2xl cursor-pointer" />
+        )}
       </div>
 
       {/* Mobile Menu */}
-      <div className={`${isMenuOpen ? 'flex ' :'hidden'} w-full h-fit bg-slate-800 p-4 absolute top-[80px] left-0`} onClick={closeMenu}>
-      
+      {isMenuOpen && (
+        <div className="w-full h-fit bg-slate-800 p-4 absolute top-[80px] left-0" onClick={closeMenu}>
           <ul className="flex flex-col justify-center items-center gap-2 w-full">
-          <li><a href="#hero" className=" p-3 hover:bg-blue-500 rounded-lg">Home</a></li>
-          <li><a href="#about" className=" p-3 hover:bg-blue-500 rounded-lg">About</a></li>
-          <li><a href="#properties" className=" p-3 hover:bg-blue-500 rounded-lg">Properties</a></li>
-          <li><a href="#services" className=" p-3 hover:bg-blue-500 rounded-lg">Services </a></li>
-          <li><a href="#testimonials" className=" p-3 hover:bg-blue-500 rounded-lg"> Testimonials</a></li>
-          <li><a href="#contact" className=" p-3 hover:bg-blue-500 rounded-lg">Contact</a></li>
             {navItems.map(({ link, path }) => (
               <li key={path}>
                 <Link
                   className="text-white uppercase font-semibold cursor-pointer p-3 rounded-lg hover:bg-red-600 hover:text-black w-full text-center"
                   to={path}
                   spy={true}
-                  offset={-100}
                   smooth={true}
+                  offset={-100}
                 >
                   {link}
                 </Link>
@@ -96,17 +92,42 @@ const Header = () => {
             ))}
           </ul>
         </div>
-        <div className='flex justify-center items-center lg:gap-8 gap-2'>
-<div className='flex justify-center items-center lg:gap-3 gap-1'>
-<FaPhoneAlt className='size-5 text-red-600'/>
-<h1 className={`${darkMode ? 'text-white' : 'text-black' } lg:text-xl text-sm font-semibold`}>
-930 829 0912
-</h1>
-</div>
-<FaUserCircle className='size-6 text-red-600'/>
-        </div>
-      
+      )}
 
+      <div className='flex justify-center items-center lg:gap-8 gap-2'>
+        <div className='flex justify-center items-center lg:gap-3 gap-1'>
+          <FaPhoneAlt className='size-5 text-red-600'/>
+          <h1 className={`${darkMode ? 'text-white' : 'text-black'} lg:text-xl text-sm font-semibold`}>
+            930 829 0912
+          </h1>
+        </div>
+
+        <div className="flex">
+          <div
+            onClick={toggleProfileDropdown}
+            className=" items-center cursor-pointer p-2  hover:bg-gray-100  rounded-3xl"
+          >
+            <FaUserCircle className="size-6 text-red-600" />
+            {/* <i className="fa-solid fa-angle-down ml-2"></i> */}
+          </div>
+
+          {isProfileOpen && (
+            <ul className="absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg">
+              <li className="p-2 hover:bg-gray-100">
+                <a href="RegisterForm.jsx">Sign up</a>
+              </li>
+              <li className="p-2 hover:bg-gray-100">
+                <a href="LoginForm.jsx">Log in</a>
+              </li>
+            
+             
+              <li className="p-2 hover:bg-gray-100">
+                <a href="">Log out</a>
+              </li>
+            </ul>
+          )}
+        </div>
+      </div>
     </nav>
   );
 };
